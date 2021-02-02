@@ -1,4 +1,4 @@
-# test dsa
+# activate py37_32
 import os
 import logging
 import sys
