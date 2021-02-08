@@ -1,4 +1,6 @@
-# activate py37_32 qwe
+# activate py37_32
+# python main.py 실행
+
 import os
 import logging
 import sys
@@ -55,20 +57,18 @@ class Kiwoom(QAxWidget):
 
         self.get_ocx_instance()
         self.event_connect()
-        self.condition_event_connect()
         self.real_event_connect()
 
-        self.signal_login_commConnect()
-        self.get_account_info()
-        self.detail_account_info()
-        self.detail_mystock_info()
-
-        self.get_condition_name()
-        self.get_condition_load()
         # self.send_condition('0', '당일단타(실시간+)', 1, 1)
         # self.send_condition('0', '단타-실시간', 2, 1)
         # self.send_condition('0', '단타', 3, 1)
         # self.send_condition('0', '종목포착', 4, 1)
+
+        # self.condition_event_connect()
+        # self.get_condition_name()
+        # self.get_condition_load()
+        # self.send_condition('0', '종목포착test', 5, 0)
+        # self.get_stock_info_start()  # 일봉차트가져오기
         
         self.dynamicCall("SetRealReg(QString, QString, QString, QString)", self.screen_start_stop_real, '', RealType.REALTYPE['장시작시간']['장운영구분'], "1")
 
@@ -102,6 +102,9 @@ class Kiwoom(QAxWidget):
                 print("장 종료 전")
                 if self.check_tf == False:
                     self.check_tf == True
+                    self.condition_event_connect()
+                    self.get_condition_name()
+                    self.get_condition_load()
                     for code in self.account_stock_dict.keys():
                         self.dynamicCall("SetRealRemove(QString, QString)", self.account_stock_dict[code]['스크린번호'], code)
 
