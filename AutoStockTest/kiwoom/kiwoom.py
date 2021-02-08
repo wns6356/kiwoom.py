@@ -59,6 +59,11 @@ class Kiwoom(QAxWidget):
         self.event_connect()
         self.real_event_connect()
 
+        self.signal_login_commConnect()
+        self.get_account_info()
+        self.detail_account_info()
+        self.detail_mystock_info()
+
         # self.send_condition('0', '당일단타(실시간+)', 1, 1)
         # self.send_condition('0', '단타-실시간', 2, 1)
         # self.send_condition('0', '단타', 3, 1)
