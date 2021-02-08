@@ -110,6 +110,7 @@ class Kiwoom(QAxWidget):
                     self.condition_event_connect()
                     self.get_condition_name()
                     self.get_condition_load()
+
                     for code in self.account_stock_dict.keys():
                         self.dynamicCall("SetRealRemove(QString, QString)", self.account_stock_dict[code]['스크린번호'], code)
 
